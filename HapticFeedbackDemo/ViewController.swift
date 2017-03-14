@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    var hapticFeedbackOptions: [String] = ["Success", "Warning", "Error", "Light Feedback", "Medium Feedback", "Heavy Feedback", "Selection Change"]
+    var hapticFeedbackOptions: [String] = ["Success", "Warning", "Error", "Light Feedback", "Medium Feedback", "Heavy Feedback"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     // MARK: tableView dataSource methods.
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return hapticFeedbackOptions.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -43,11 +43,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case 1:
             let generator = UINotificationFeedbackGenerator()
             generator.prepare()
-            generator.notificationOccurred(.error)
+            generator.notificationOccurred(.warning)
         case 2:
             let generator = UINotificationFeedbackGenerator()
             generator.prepare()
-            generator.notificationOccurred(.warning)
+            generator.notificationOccurred(.error)
         case 3:
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.prepare()
@@ -60,13 +60,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.prepare()
             generator.impactOccurred()
-        case 6:
-            let generator = UISelectionFeedbackGenerator()
-            generator.prepare()
-            generator.selectionChanged()
         default:
             break
         }
     }
+
+    @IBAction func sliderValueChanged(_ sender: Any) {
+        let generator = UISelectionFeedbackGenerator()
+        generator.prepare()
+        generator.selectionChanged()
+    }
+
 }
 

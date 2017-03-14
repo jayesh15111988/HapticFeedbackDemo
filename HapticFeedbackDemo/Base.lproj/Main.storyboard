@@ -32,8 +32,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rbs-hv-MoD">
-                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="BjQ-QD-ceo"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="9tr-Fo-VGg">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -49,16 +52,37 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="DCF-Ja-c22"/>
                                 </connections>
                             </tableView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ia1-x8-fbJ">
+                                <rect key="frame" x="-2" y="516" width="379" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Uqe-Yy-pb9"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selection Change" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bu-Y8-kyx">
+                                <rect key="frame" x="0.0" y="468" width="375" height="40"/>
+                                <color key="backgroundColor" red="0.83989669060000005" green="1" blue="0.25690444730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="iYj-2H-e7y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rbs-hv-MoD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="0w2-U4-02a"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rbs-hv-MoD" secondAttribute="bottom" id="E6Y-PG-2U5"/>
+                            <constraint firstAttribute="trailing" secondItem="3bu-Y8-kyx" secondAttribute="trailing" id="7ff-9a-qIw"/>
+                            <constraint firstItem="3bu-Y8-kyx" firstAttribute="top" secondItem="rbs-hv-MoD" secondAttribute="bottom" constant="8" id="UK1-sB-M37"/>
+                            <constraint firstItem="ia1-x8-fbJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Vfa-jC-SWu"/>
                             <constraint firstItem="rbs-hv-MoD" firstAttribute="top" secondItem="ImJ-Do-rVZ" secondAttribute="bottom" id="WsB-54-p82"/>
+                            <constraint firstAttribute="trailing" secondItem="ia1-x8-fbJ" secondAttribute="trailing" id="Ycm-5I-1F7"/>
                             <constraint firstAttribute="trailing" secondItem="rbs-hv-MoD" secondAttribute="trailing" id="fwN-TG-liI"/>
                             <constraint firstItem="ImJ-Do-rVZ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gn2-PJ-lwY"/>
                             <constraint firstItem="ImJ-Do-rVZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h0b-94-9vu"/>
+                            <constraint firstItem="3bu-Y8-kyx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i9i-Ua-EJE"/>
                             <constraint firstAttribute="trailing" secondItem="ImJ-Do-rVZ" secondAttribute="trailing" id="iSo-Rc-Gl8"/>
+                            <constraint firstItem="ia1-x8-fbJ" firstAttribute="top" secondItem="3bu-Y8-kyx" secondAttribute="bottom" constant="8" id="sLg-qH-LK4"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
